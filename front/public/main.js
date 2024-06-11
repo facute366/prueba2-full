@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageInput = document.getElementById('imageInput');
     const deleteImageBtn = document.getElementById('deleteImageBtn');
     const carouselInner = document.querySelector('#carouselExampleAutoplaying .carousel-inner');
+    const apiUrl = 'https://probando-back-1.onrender.com'; // URL del backend
 
     // Función para inicializar el carrusel
     const initializeCarousel = () => {
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Cargar imágenes iniciales desde la API
-    fetch('/https://probando-back-1.onrender.com/images')
+    fetch(`${apiUrl}/images`)
         .then(response => response.json())
         .then(images => {
             images.forEach((src, index) => {
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 carouselInner.appendChild(newImage);
 
                 // Guardar imagen en la API
-                fetch('https://probando-back-1.onrender.com/images', {
+                fetch(`${apiUrl}/images`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (items.length > 1) {
             const activeIndex = Array.from(items).indexOf(activeItem);
 
-            fetch(`https://probando-back-1.onrender.com//images/${activeIndex}`, {
+            fetch(`${apiUrl}/images/${activeIndex}`, {
                 method: 'DELETE'
             }).then(() => {
                 activeItem.remove();
@@ -84,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 /* Menu hamburguesa */
 document.addEventListener('DOMContentLoaded', function() {
@@ -155,6 +157,8 @@ eliminarElementosEnResponsive(mediaQuery);
 // Agregar un listener para verificar si cambia el estado de la ventana
 mediaQuery.addListener(eliminarElementosEnResponsive);
 
+//funciones para el menu-admin 
+/*
 let categoryCount = 0;
 let subcategoryCount = 0;
 
@@ -163,8 +167,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-//funciones para el menu-admin 
-/*
+
+
 let categoryCount = 0;
 let subcategoryCount = 0;
 
