@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Cargar imágenes iniciales desde la API
-    fetch('/images')
+    fetch('/https://probando-back-1.onrender.com/images')
         .then(response => response.json())
         .then(images => {
             images.forEach((src, index) => {
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 carouselInner.appendChild(newImage);
 
                 // Guardar imagen en la API
-                fetch('/images', {
+                fetch('https://probando-back-1.onrender.com/images', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (items.length > 1) {
             const activeIndex = Array.from(items).indexOf(activeItem);
 
-            fetch(`/images/${activeIndex}`, {
+            fetch(`https://probando-back-1.onrender.com//images/${activeIndex}`, {
                 method: 'DELETE'
             }).then(() => {
                 activeItem.remove();
