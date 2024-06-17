@@ -82,7 +82,7 @@ img {
 /*header*/
 .header{
     /*background-color: var(--primario);*/
-    background-color: var(--primario);
+    background-color: var(--blanco);
     border-bottom: 2px solid var(--gris);
 }
 
