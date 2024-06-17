@@ -1,4 +1,4 @@
-/*const express = require('express');
+const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const fs = require('fs');
@@ -44,4 +44,4 @@ app.delete('/images/:index', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-}); */
+}); 
