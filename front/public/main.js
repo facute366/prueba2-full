@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageInput = document.getElementById('imageInput');
     const deleteImageBtn = document.getElementById('deleteImageBtn');
     const carouselInner = document.querySelector('#carouselExampleAutoplaying .carousel-inner');
-    const apiUrl = 'https://probando-back-1.onrender.com'; // URL del backend
 
     // Función para inicializar el carrusel
     const initializeCarousel = () => {
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Cargar imágenes iniciales desde la API
-    fetch(`${apiUrl}/images`)
+    fetch(`/images`)
         .then(response => response.json())
         .then(images => {
             images.forEach((src, index) => {
@@ -44,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 carouselInner.appendChild(newImage);
 
                 // Guardar imagen en la API
-                fetch(`${apiUrl}/images`, {
+                fetch(`/images`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -69,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (items.length > 1) {
             const activeIndex = Array.from(items).indexOf(activeItem);
 
-            fetch(`${apiUrl}/images/${activeIndex}`, {
+            fetch(`/images/${activeIndex}`, {
                 method: 'DELETE'
             }).then(() => {
                 activeItem.remove();
