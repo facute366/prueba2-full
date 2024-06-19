@@ -4,7 +4,8 @@
   "main": "back/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node back/server.js"
+    "start": "node back/server.js",
+    "build": "cd front && npm install && npm run build"
     
   },
   "author": "",
@@ -13,6 +14,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "cors": "^2.8.5",
-    "body-parser": "^1.19.0"
+    "body-parser": "^1.19.0",
+    "aws-sdk": "^2.814.0"
   }
 }
